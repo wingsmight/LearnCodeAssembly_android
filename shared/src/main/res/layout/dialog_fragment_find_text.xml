@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@id/text_to_find"
+        android:hint="@string/text_to_find"
+        android:padding="5dp"
+        android:textSize="12sp"
+        android:inputType="textNoSuggestions|textFilter|textVisiblePassword"/>
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/regular_expression"
+        android:id="@id/regex_check"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:textSize="12sp"
+        android:textAllCaps="true"/>
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/match_case"
+        android:id="@id/match_case_check"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:textSize="12sp"
+        android:textAllCaps="true"/>
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/replace"
+        android:id="@id/replace_check"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:textSize="12sp"
+        android:textAllCaps="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@id/text_to_replace"
+        android:hint="@string/text_to_replace"
+        android:visibility="gone"
+        android:padding="5dp"
+        android:textSize="12sp"
+        android:inputType="textNoSuggestions|textFilter"/>
+</LinearLayout>

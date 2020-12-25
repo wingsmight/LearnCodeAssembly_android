@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+    <declare-styleable name="Theme">
+
+    <!-- Dialog styles -->
+    <attr name="textAppearanceDialogTitle" format="reference"/>
+    <attr name="textAppearanceDialogMessage" format="reference"/>
+    <attr name="textAppearanceDialogInfo" format="reference"/>
+    </declare-styleable>
+</resources>
