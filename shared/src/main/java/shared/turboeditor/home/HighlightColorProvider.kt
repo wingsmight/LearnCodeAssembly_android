@@ -17,6 +17,12 @@ interface HighlightColorProvider {
     val numberColor: Int
 
     val variableColor: Int
+
+    val registerColor: Int
+
+    val instructionColor: Int
+
+    val capsInstructionColor: Int
 }
 
 class AndroidHighlightColorProvider : HighlightColorProvider {
@@ -40,4 +46,13 @@ class AndroidHighlightColorProvider : HighlightColorProvider {
 
     override val variableColor: Int
         get() = R.color.syntax_variable
+
+    override val registerColor: Int
+        get() = R.color.syntax_register
+
+    override val instructionColor: Int
+        get() = R.color.syntax_instruction
+
+    override val capsInstructionColor: Int
+        get() = R.color.syntax_caps_instruction
 }

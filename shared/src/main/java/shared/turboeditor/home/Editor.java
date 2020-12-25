@@ -3,12 +3,14 @@ package shared.turboeditor.home;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
 import android.text.Spannable;
+import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -51,8 +53,7 @@ public class Editor extends AppCompatEditText {
     /**
      * The change listener.
      */
-    private EditTextChangeListener
-            mChangeListener;
+    private EditTextChangeListener mChangeListener;
     /**
      * Disconnect this undo/redo from the text
      * view.
@@ -129,11 +130,7 @@ public class Editor extends AppCompatEditText {
             }
         }
 
-        if (PreferenceHelper.getUseMonospace(getContext())) {
-            setTypeface(Typeface.MONOSPACE);
-        } else {
-            setTypeface(Typeface.DEFAULT);
-        }
+        setTypeface(Typeface.DEFAULT);
         setTextSize(PreferenceHelper.getFontSize(getContext()));
 
         setFocusable(true);
@@ -312,8 +309,7 @@ public class Editor extends AppCompatEditText {
      * {@inheritDoc}
      */
     @Override
-    public boolean onTextContextMenuItem(
-            final int id) {
+    public boolean onTextContextMenuItem(final int id) {
         if (id == ID_UNDO) {
             undo();
             return true;
@@ -513,7 +509,7 @@ public class Editor extends AppCompatEditText {
         textToHighlight = editable.subSequence(firstColoredIndex, lastVisibleIndex);
 
         if (TextUtils.isEmpty(MainActivity.Companion.getFileExtension()))
-            MainActivity.Companion.setFileExtension("");
+            MainActivity.Companion.setFileExtension("asm");
 
         HighlightDriver highlightDriver = new HighlightDriver(new AndroidHighlightColorProvider(),
                 MainActivity.Companion.getFileExtension());
@@ -524,7 +520,7 @@ public class Editor extends AppCompatEditText {
                     new ForegroundColorSpan(info.getColor()),
                     info.getStart(),
                     info.getEnd(),
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
 
         return editable;
@@ -683,9 +679,7 @@ public class Editor extends AppCompatEditText {
                     s.subSequence(start, start + count);
         }
 
-        public void onTextChanged(CharSequence s,
-                                  int start, int before,
-                                  int count) {
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (mIsUndoOrRedo) {
                 return;
             }

@@ -45,7 +45,7 @@ public final class PreferenceHelper {
     }
 
     public static boolean getSyntaxHighlight(Context context) {
-        return getPrefs(context).getBoolean("editor_syntax_highlight", false);
+        return getPrefs(context).getBoolean("editor_syntax_highlight", true);
     }
 
     public static boolean getWrapContent(Context context) {
@@ -57,11 +57,11 @@ public final class PreferenceHelper {
     }
 
     public static boolean getDarkTheme(Context context) {
-        return getPrefs(context).getInt("theme", 0) == 0;
+        return getPrefs(context).getInt("theme", 1) == 0;
     }
 
     public static boolean getLightTheme(Context context) {
-        return getPrefs(context).getInt("theme", 0) == 1;
+        return getPrefs(context).getInt("theme", 1) == 1;
     }
 
     public static boolean getBlackTheme(Context context) {
